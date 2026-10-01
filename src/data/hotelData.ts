@@ -56,14 +56,22 @@ import standardImg from '../assets/images/guner_room_standard_1790844315700.jpg'
 import deluxeImg from '../assets/images/guner_room_deluxe_1790844331262.jpg';
 import familyImg from '../assets/images/guner_room_family_1790844346985.jpg';
 import bursaImg from '../assets/images/bursa_city_landscape_1790844362401.jpg';
+import featComfortImg from '../assets/images/feature_comfortable_rooms_1790846366299.jpg';
+import featHospitalityImg from '../assets/images/feature_turkish_hospitality_1790846384117.jpg';
+import featLocationImg from '../assets/images/feature_bursa_location_1790846399316.jpg';
+import featRelaxingImg from '../assets/images/feature_relaxing_stay_1790846414560.jpg';
 
 export const HOTEL_IMAGES = {
-  hero: heroImg,
+  hero: "https://res.cloudinary.com/k7og2ybq/image/upload/v1790846728/unnamed.jpg",
   welcome: welcomeImg,
   standard: standardImg,
   deluxe: deluxeImg,
   family: familyImg,
-  bursa: bursaImg
+  bursa: bursaImg,
+  featComfort: featComfortImg,
+  featHospitality: featHospitalityImg,
+  featLocation: featLocationImg,
+  featRelaxing: featRelaxingImg
 };
 
 export const ROOMS_DATA: Room[] = [
@@ -171,28 +179,32 @@ export const EXPERIENCE_FEATURES = [
     title: "Comfortable Rooms",
     subtitle: "Restful Night's Sleep",
     description: "Orthopedic mattresses, quiet soundproofing, crisp Turkish cotton linens, and climate control ensure complete relaxation.",
-    iconName: "BedDouble"
+    iconName: "BedDouble",
+    image: featComfortImg
   },
   {
     id: "hospitality",
     title: "Turkish Hospitality",
     subtitle: "Warm & Attentive Service",
     description: "Our dedicated team provides authentic Turkish warmth, local recommendations, and 24/7 personalized care.",
-    iconName: "HeartHandshake"
+    iconName: "HeartHandshake",
+    image: featHospitalityImg
   },
   {
     id: "location",
     title: "Convenient Location",
     subtitle: "Heart of Yıldırım, Bursa",
     description: "Situated centrally in Yıldırım with swift transport access to historical bazaars, Uludağ cable car, and local dining.",
-    iconName: "MapPin"
+    iconName: "MapPin",
+    image: featLocationImg
   },
   {
     id: "relaxing",
     title: "Relaxing Stay",
     subtitle: "Tranquil Ambiance",
     description: "Peaceful atmosphere designed for both leisure tourists exploring Bursa and business guests needing quiet efficiency.",
-    iconName: "Sparkles"
+    iconName: "Sparkles",
+    image: featRelaxingImg
   }
 ];
 

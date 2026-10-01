@@ -36,6 +36,7 @@ export const RoomsPage: React.FC<RoomsPageProps> = ({ onOpenBooking }) => {
           <img
             src={HOTEL_IMAGES.hero}
             alt="Güner Hotel Rooms Luxury"
+            referrerPolicy="no-referrer"
             className="w-full h-full object-cover opacity-25"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#1E0E32] via-[#1E0E32]/70 to-transparent" />

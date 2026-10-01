@@ -13,7 +13,7 @@ import {
   Calendar,
   Phone
 } from 'lucide-react';
-import { HOTEL_INFO, HOTEL_IMAGES, BURSA_HIGHLIGHTS } from '../data/hotelData';
+import { HOTEL_INFO, HOTEL_IMAGES, BURSA_HIGHLIGHTS, EXPERIENCE_FEATURES } from '../data/hotelData';
 
 interface AboutPageProps {
   navigate: (path: string) => void;
@@ -114,47 +114,39 @@ export const AboutPage: React.FC<AboutPageProps> = ({ navigate, onOpenBooking })
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            
-            <div className="bg-white p-8 rounded-lg border border-purple-200 shadow-sm space-y-3">
-              <BedDouble className="w-8 h-8 text-[#9333EA]" />
-              <h3 className="font-serif text-xl font-bold text-purple-950">
-                Comfortable Rooms
-              </h3>
-              <p className="text-xs text-purple-900/80 leading-relaxed font-sans">
-                Quiet acoustic insulation, orthopedic mattresses, crisp linens, and individual climate control in every room.
-              </p>
-            </div>
-
-            <div className="bg-white p-8 rounded-lg border border-purple-200 shadow-sm space-y-3">
-              <HeartHandshake className="w-8 h-8 text-[#9333EA]" />
-              <h3 className="font-serif text-xl font-bold text-purple-950">
-                Warm Hospitality
-              </h3>
-              <p className="text-xs text-purple-900/80 leading-relaxed font-sans">
-                Authentic Turkish tea, personalized city recommendations, and 24-hour attentive reception support.
-              </p>
-            </div>
-
-            <div className="bg-white p-8 rounded-lg border border-purple-200 shadow-sm space-y-3">
-              <MapPin className="w-8 h-8 text-[#9333EA]" />
-              <h3 className="font-serif text-xl font-bold text-purple-950">
-                Great Location
-              </h3>
-              <p className="text-xs text-purple-900/80 leading-relaxed font-sans">
-                Centrally located in Yıldırım, Bursa with swift access to central monuments, cable car, and shopping.
-              </p>
-            </div>
-
-            <div className="bg-white p-8 rounded-lg border border-purple-200 shadow-sm space-y-3">
-              <Sparkles className="w-8 h-8 text-[#9333EA]" />
-              <h3 className="font-serif text-xl font-bold text-purple-950">
-                Memorable Stays
-              </h3>
-              <p className="text-xs text-purple-900/80 leading-relaxed font-sans">
-                Immaculate daily housekeeping, serene boutique ambiance, and seamless booking for a worry-free stay.
-              </p>
-            </div>
-
+            {EXPERIENCE_FEATURES.map((feat) => {
+              const Icon = feat.id === 'comfort' ? BedDouble : feat.id === 'hospitality' ? HeartHandshake : feat.id === 'location' ? MapPin : Sparkles;
+              return (
+                <div
+                  key={feat.id}
+                  className="bg-white rounded-xl border border-purple-200/80 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden group flex flex-col"
+                >
+                  <div className="relative aspect-[4/3] overflow-hidden">
+                    <img
+                      src={feat.image}
+                      alt={feat.title}
+                      referrerPolicy="no-referrer"
+                      className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-700"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#1E0E32]/70 via-transparent to-transparent" />
+                    <div className="absolute bottom-3 left-3 w-9 h-9 bg-white/95 backdrop-blur-md text-[#581C87] rounded-lg flex items-center justify-center shadow border border-purple-200">
+                      <Icon className="w-4 h-4 text-[#9333EA]" />
+                    </div>
+                  </div>
+                  <div className="p-6 flex-1 flex flex-col space-y-2 text-left">
+                    <span className="text-[10px] font-bold font-mono tracking-wider text-[#9333EA] uppercase block">
+                      {feat.subtitle}
+                    </span>
+                    <h3 className="font-serif-display text-lg font-bold text-purple-950 group-hover:text-[#9333EA] transition-colors">
+                      {feat.title}
+                    </h3>
+                    <p className="text-xs text-purple-900/80 leading-relaxed font-sans">
+                      {feat.description}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
           </div>
 
         </div>
