@@ -1,0 +1,6 @@
+{
+  "name": "Güner Hotel",
+  "description": "Comfort, Elegance & Turkish Hospitality in Bursa, Türkiye.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
